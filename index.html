@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS Portfolio Background</title>
+    <style>
+        /* 1. RESET & BASE STYLES */
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Courier New', monospace;
+            /* Monospace font adds to the dev feel */
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* 2. THE MAIN CONTAINER */
+        .portfolio-container {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            background-color: #050505;
+            /* Fallback dark color */
+        }
+
+        /* 3. THE BACKGROUND IMAGE LAYER */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+
+            /* REPLACE THE URL BELOW WITH YOUR AI GENERATED IMAGE */
+            background-image: url('https://th.bing.com/th/id/OIG2.xuMzlZg.VLi6jDpNsEkj?r=0&o=5&dpr=1.3&pid=ImgGn');
+
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            /* Darkens the image so text pops */
+            filter: grayscale(80%) contrast(1.2);
+            /* Makes it look more technical/blueprint-like */
+        }
+
+        /* 4. THE SCANLINE EFFECT (The "CS Student" Flex) */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0),
+                    rgba(255, 255, 255, 0) 50%,
+                    rgba(0, 0, 0, 0.2) 50%,
+                    rgba(0, 0, 0, 0.2));
+            background-size: 100% 4px;
+            /* Controls the thickness of the lines */
+            pointer-events: none;
+            /* Allows you to click text underneath this layer */
+        }
+
+        /* 5. VIGNETTE (Darkens corners for focus) */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 100%);
+            pointer-events: none;
+        }
+
+        /* 6. YOUR CONTENT (Z-index must be higher than background) */
+        .content {
+            position: relative;
+            z-index: 10;
+            padding: 100px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 0;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            /* Glowing Text Effect */
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #00ffcc;
+            /* Cyan color for that "Terminal" look */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="portfolio-container">
+        <div class="bg-image"></div>
+        <div class="scanlines"></div>
+        <div class="vignette"></div>
+
+        <div class="content">
+            <h1>DEV / ANALYST</h1>
+            <p>BUILDING SYSTEMS FOR THE BEAUTIFUL GAME</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
