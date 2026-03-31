@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark Navy (primary background) */
+    --color-bg-primary: #0A192F;
+    /* Slightly lighter navy (surface/cards) */
+    --color-bg-surface: #112240;
+    /* Maroon (accent, hover states) */
+    --color-accent-maroon: #8B0000;
+    /* Accent Gold (highlights, CTAs) */
+    --color-accent-gold: #FFD700;
+    /* Mint/Teal (optional highlight color) */
+    --color-accent-mint: #64FFDA;
+    /* Light blue-white (primary text) */
+    --color-text-primary: #CCD6F6;
+    /* Slate (muted text) */
+    --color-text-muted: #8892B0;
+
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  .light-mode {
+    --color-bg-primary: #F8FAFC;
+    --color-bg-surface: #FFFFFF;
+    --color-accent-maroon: #991B1B;
+    --color-accent-gold: #D97706;
+    --color-accent-mint: #0F766E;
+    --color-text-primary: #0F172A;
+    --color-text-muted: #475569;
+  }
+
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .text-heading {
+    font-family: var(--font-heading);
+  }
+  .text-mono {
+    font-family: var(--font-mono);
+  }
+}
