@@ -32,7 +32,7 @@ function ExternalLinkIcon({ className }) {
   );
 }
 
-export default function ProjectCard({ project, onOpenModal }) {
+export default function ProjectCard({ project, index = 0, onOpenModal }) {
   const { id, title, description, techStack, githubLink, liveLink, image, category } = project;
 
   // Build initials for the fallback gradient block
@@ -48,7 +48,8 @@ export default function ProjectCard({ project, onOpenModal }) {
   return (
     <motion.article
       id={`project-card-${id}`}
-      className="bg-[var(--color-bg-surface)] rounded-lg overflow-hidden border border-gray-200 shadow-sm hover:border-[var(--color-fcb-grana)] cursor-pointer group w-full h-full flex flex-col"
+      style={{ marginTop: typeof index === 'number' && index % 2 !== 0 ? '2rem' : '0' }}
+      className="bg-[var(--color-bg-surface)] rounded-2xl overflow-hidden border-[2px] border-gray-200 dark:border-[var(--color-border-subtle)] shadow-sm hover:border-[var(--color-fcb-grana)] hover:shadow-[0_0_20px_rgba(165,0,68,0.5)] dark:hover:border-[var(--color-fcb-blau)] dark:hover:shadow-[0_0_20px_rgba(0,77,152,0.5)] focus:animate-aura cursor-pointer group w-full h-full flex flex-col relative z-10 hover:z-20 transition-all duration-300"
       onClick={handleActivate}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -63,7 +64,7 @@ export default function ProjectCard({ project, onOpenModal }) {
       transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       {/* Image / Fallback gradient */}
-      <div className="w-full h-48 bg-[#F8F9FA] flex items-center justify-center border-b border-gray-200 overflow-hidden">
+      <div className="w-full h-48 bg-[#F8F9FA] dark:bg-[var(--color-bg-primary)] flex items-center justify-center border-b border-gray-200 dark:border-[var(--color-border-subtle)] overflow-hidden">
         {image ? (
           <img
             src={image}
@@ -121,7 +122,7 @@ export default function ProjectCard({ project, onOpenModal }) {
           </div>
         </div>
 
-        <h3 className="font-heading text-xl font-bold text-[var(--color-fcb-blau)] mb-3 group-hover:text-[var(--color-fcb-grana)] transition-colors duration-200">
+        <h3 className="font-heading text-xl font-bold text-[var(--color-fcb-blau)] dark:text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-fcb-grana)] transition-colors duration-200">
           {title}
         </h3>
 
@@ -129,10 +130,9 @@ export default function ProjectCard({ project, onOpenModal }) {
           {description}
         </p>
 
-        {/* Tech stack */}
-        <ul className="flex flex-wrap gap-3 font-mono text-xs text-[var(--color-text-muted)] mt-auto">
+        <ul className="flex flex-wrap gap-3 font-mono text-xs text-[var(--color-text-inverse)] mb-0 mt-auto">
           {techStack.map((tech) => (
-            <li key={tech} className="px-2 py-1 bg-[var(--color-fcb-gold)]/20 text-[var(--color-fcb-blau)] font-bold rounded-md">{tech}</li>
+            <li key={tech} className="px-2 py-1 bg-[var(--color-fcb-gold)] text-[var(--color-fcb-blau)] border border-transparent dark:border-[var(--color-fcb-gold)]/50 font-bold rounded-md">{tech}</li>
           ))}
         </ul>
       </div>

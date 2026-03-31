@@ -4,9 +4,10 @@
 
 @layer base {
   :root {
-    /* Base Backgrounds (Neutral) */
+    /* Base Backgrounds (Light Kit) */
     --color-bg-primary: #F8F9FA;
     --color-bg-surface: #FFFFFF;
+    --color-border-subtle: #E5E7EB;
     
     /* FCB Primary Colors */
     --color-fcb-blau: #004D98;
@@ -22,6 +23,17 @@
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
     --font-mono: 'DM Mono', monospace;
+  }
+
+  html.dark {
+    /* Away Kit (Midnight / Slate Dark Mode) */
+    --color-bg-primary: #0A1128;
+    --color-bg-surface: #162032;
+    --color-border-subtle: #1E293B;
+
+    --color-text-primary: #F8F9FA;
+    --color-text-muted: #94A3B8;
+    --color-text-inverse: #1A1A1A;
   }
 
   *,
@@ -49,7 +61,6 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
-    color: var(--color-fcb-blau); /* Headings use Blau by default */
   }
 
   a {
@@ -75,13 +86,50 @@
 }
 
 @layer utilities {
-  .font-heading {
-    font-family: var(--font-heading);
+  .font-heading { font-family: var(--font-heading); }
+  .font-body { font-family: var(--font-body); }
+  .font-mono { font-family: var(--font-mono); }
+
+  /* Tiki Taka Flowing Underline text block */
+  .tiki-taka-text {
+    background: linear-gradient(90deg, var(--color-fcb-blau), var(--color-fcb-grana), var(--color-fcb-gold), var(--color-fcb-blau));
+    background-size: 300% 100%;
+    animation: flow-background 4s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .font-body {
-    font-family: var(--font-body);
+
+  /* SVG Flowing Path */
+  .tiki-taka-path {
+    background: linear-gradient(90deg, var(--color-fcb-blau), var(--color-fcb-grana));
+    background-size: 300% 100%;
+    animation: flow-background 8s linear infinite;
   }
-  .font-mono {
-    font-family: var(--font-mono);
+
+  /* Grid Blur Trick Container */
+  .group-grid > * {
+    transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
+  .group-grid:hover > *:not(:hover) {
+    filter: blur(6px);
+    opacity: 0.6;
+    transform: scale(0.98);
+  }
+
+  .animate-aura {
+    animation: aura-glow 3s ease-in-out infinite;
+  }
+}
+
+@keyframes flow-background {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes aura-glow {
+  0% { box-shadow: 0 0 15px rgba(165,0,68,0.4), 0 0 30px rgba(0,77,152,0.3); }
+  50% { box-shadow: 0 0 25px rgba(165,0,68,0.7), 0 0 45px rgba(0,77,152,0.5); }
+  100% { box-shadow: 0 0 15px rgba(165,0,68,0.4), 0 0 30px rgba(0,77,152,0.3); }
 }

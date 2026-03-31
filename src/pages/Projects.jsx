@@ -55,11 +55,12 @@ export default function Projects({ onOpenModal }) {
 
         {/* Project Grid */}
         {filteredProjects.length > 0 ? (
-          <div id="projects-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
+          <div id="projects-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 group-grid">
+            {filteredProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
                 project={project}
+                index={index}
                 onOpenModal={onOpenModal}
               />
             ))}

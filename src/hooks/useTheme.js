@@ -6,8 +6,8 @@ import { useState, useEffect, useCallback } from 'react';
  * Manages dark/light mode with localStorage persistence.
  * Default: 'dark' (per PRD requirement).
  *
- * Applies `.light-mode` class to <html> when light is active,
- * matching the tokens.css selector: html.light-mode { ... }
+ * Applies `.dark` class to <html> when dark is active,
+ * matching Tailwind's darkMode: 'class' behavior.
  *
  * Falls back to 'dark' if localStorage is unavailable or corrupted.
  */
@@ -30,10 +30,10 @@ export function useTheme() {
 
   // Sync .light-mode class to <html> whenever theme changes
   useEffect(() => {
-    if (theme === 'light') {
-      document.documentElement.classList.add('light-mode');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('light-mode');
+      document.documentElement.classList.remove('dark');
     }
     try {
       localStorage.setItem(STORAGE_KEY, theme);

@@ -8,7 +8,7 @@ const navLinks = [
   { to: '/contact', label: 'Contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -21,12 +21,11 @@ export default function Navbar() {
 
   const closeMenu = () => setMenuOpen(false);
 
-  // Active state: Bottom border Grana, white text. Inactive: white/70
   const linkClassDesktop = ({ isActive }) =>
-    `transition-all duration-200 py-1 border-b-[3px] hover:text-[var(--color-text-inverse)] ${
+    `relative py-1 transition-all duration-200 hover:text-[var(--color-text-inverse)] ${
       isActive
-        ? 'border-[var(--color-fcb-grana)] text-[var(--color-text-inverse)]'
-        : 'border-transparent text-[var(--color-text-inverse)]/70'
+        ? 'text-[var(--color-text-inverse)] font-bold after:content-[""] after:absolute after:-bottom-[2px] after:left-0 after:w-full after:h-[3px] after:tiki-taka-path after:shadow-[0_0_10px_var(--color-fcb-grana)]'
+        : 'text-[var(--color-text-inverse)]/70'
     }`;
 
   const linkClassMobile = ({ isActive }) =>
@@ -40,8 +39,10 @@ export default function Navbar() {
     <nav
       id="main-navbar"
       className={`fixed top-0 left-0 w-full z-50 py-4 px-6 md:px-12 transition-all duration-200
-        backdrop-blur-md border-b-2 border-[var(--color-fcb-grana)]
-        ${scrolled ? 'bg-[var(--color-fcb-blau)]/95 shadow-md' : 'bg-[var(--color-fcb-blau)]/90'}`}
+        backdrop-blur-md border-b-2 border-slate-800 dark:border-slate-800 border-[var(--color-fcb-grana)]
+        ${scrolled 
+          ? (theme === 'dark' ? 'bg-[#0A1128]/95 shadow-md' : 'bg-[var(--color-fcb-blau)]/95 shadow-md') 
+          : (theme === 'dark' ? 'bg-[#0A1128]/90' : 'bg-[var(--color-fcb-blau)]/90')}`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
@@ -70,8 +71,29 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Right side: mobile hamburger */}
+        {/* Right side: theme toggle + mobile hamburger */}
         <div className="flex items-center gap-4">
+          {/* Theme toggle */}
+          <button
+            id="theme-toggle-btn"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            className="text-[var(--color-text-inverse)] hover:text-[var(--color-fcb-gold)] transition-colors duration-200"
+          >
+            {theme === 'dark' ? (
+              /* Sun icon */
+              <svg className="w-5 h-5 drop-shadow-[0_0_8px_var(--color-fcb-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M17.657 17.657l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+              </svg>
+            ) : (
+              /* Moon icon */
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            )}
+          </button>
           <button
             id="mobile-menu-btn"
             className="flex md:hidden flex-col gap-1.5 p-1"

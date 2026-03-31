@@ -48,11 +48,11 @@ export default function ContactForm() {
   // Helper: field border class based on validation state
   const fieldBorder = (name) => {
     if (touched[name] && errors[name]) return 'border-[var(--color-fcb-grana)] ring-1 ring-[var(--color-fcb-grana)]';
-    return 'border-gray-300 focus:border-[var(--color-fcb-blau)] focus:ring-1 focus:ring-[var(--color-fcb-blau)]';
+    return 'border-[var(--color-border-subtle)] focus:border-[var(--color-fcb-grana)] focus:ring-1 focus:ring-[var(--color-fcb-grana)]';
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-8 bg-white rounded-xl shadow-lg border border-gray-200">
+    <div className="max-w-2xl mx-auto p-8 bg-[var(--color-bg-surface)] rounded-2xl shadow-lg border border-[var(--color-border-subtle)] transition-colors duration-300">
 
 
       {/* Status banners */}
@@ -95,7 +95,7 @@ export default function ContactForm() {
             autoComplete="name"
             aria-invalid={touched.user_name && !!errors.user_name}
             aria-describedby={errors.user_name ? 'name-error' : undefined}
-            className={`w-full bg-[#F8F9FA] border ${fieldBorder('user_name')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
+            className={`w-full bg-[var(--color-bg-primary)] border ${fieldBorder('user_name')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
           />
           {touched.user_name && errors.user_name && (
             <span id="name-error" role="alert" className="text-[var(--color-fcb-grana)] text-xs font-mono mt-1 block">
@@ -123,7 +123,7 @@ export default function ContactForm() {
             autoComplete="email"
             aria-invalid={touched.user_email && !!errors.user_email}
             aria-describedby={errors.user_email ? 'email-error' : undefined}
-            className={`w-full bg-[#F8F9FA] border ${fieldBorder('user_email')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
+            className={`w-full bg-[var(--color-bg-primary)] border ${fieldBorder('user_email')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
           />
           {touched.user_email && errors.user_email && (
             <span id="email-error" role="alert" className="text-[var(--color-fcb-grana)] text-xs font-mono mt-1 block">
@@ -150,7 +150,7 @@ export default function ContactForm() {
             rows={5}
             aria-invalid={touched.message && !!errors.message}
             aria-describedby={errors.message ? 'message-error' : undefined}
-            className={`w-full bg-[#F8F9FA] border ${fieldBorder('message')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body resize-y`}
+            className={`w-full bg-[var(--color-bg-primary)] border ${fieldBorder('message')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body resize-y`}
           />
           {touched.message && errors.message && (
             <span id="message-error" role="alert" className="text-[var(--color-fcb-grana)] text-xs font-mono mt-1 block">
