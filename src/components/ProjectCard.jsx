@@ -48,7 +48,7 @@ export default function ProjectCard({ project, onOpenModal }) {
   return (
     <motion.article
       id={`project-card-${id}`}
-      className="bg-[var(--color-bg-surface)] rounded-lg overflow-hidden border border-[var(--color-bg-surface)] cursor-pointer group w-full h-full flex flex-col"
+      className="bg-[var(--color-bg-surface)] rounded-lg overflow-hidden border border-gray-200 shadow-sm hover:border-[var(--color-fcb-grana)] cursor-pointer group w-full h-full flex flex-col"
       onClick={handleActivate}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -63,7 +63,7 @@ export default function ProjectCard({ project, onOpenModal }) {
       transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       {/* Image / Fallback gradient */}
-      <div className="w-full h-48 bg-gradient-to-tr from-[var(--color-bg-primary)] to-[var(--color-bg-surface)] flex items-center justify-center border-b border-[var(--color-bg-primary)] overflow-hidden">
+      <div className="w-full h-48 bg-[#F8F9FA] flex items-center justify-center border-b border-gray-200 overflow-hidden">
         {image ? (
           <img
             src={image}
@@ -88,7 +88,7 @@ export default function ProjectCard({ project, onOpenModal }) {
       <div className="p-6 flex flex-col flex-grow">
         {/* Category + link icons */}
         <div className="flex justify-between items-start mb-4">
-          <span className="font-mono text-[var(--color-accent-gold)] text-xs">{category}</span>
+          <span className="font-mono text-[var(--color-fcb-grana)] font-bold text-xs uppercase tracking-wider">{category}</span>
 
           {/* Link icons — stop propagation so clicking them doesn't open modal */}
           <div
@@ -102,7 +102,7 @@ export default function ProjectCard({ project, onOpenModal }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${title} GitHub repository`}
-                className="hover:text-[var(--color-accent-mint)] transition-colors duration-200"
+                className="hover:text-[var(--color-fcb-blau)] transition-colors duration-200"
               >
                 <GitHubIcon className="w-5 h-5" />
               </a>
@@ -113,7 +113,7 @@ export default function ProjectCard({ project, onOpenModal }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${title} live demo`}
-                className="hover:text-[var(--color-accent-mint)] transition-colors duration-200"
+                className="hover:text-[var(--color-fcb-blau)] transition-colors duration-200"
               >
                 <ExternalLinkIcon className="w-5 h-5" />
               </a>
@@ -121,7 +121,7 @@ export default function ProjectCard({ project, onOpenModal }) {
           </div>
         </div>
 
-        <h3 className="font-heading text-xl font-bold text-[var(--color-text-primary)] mb-3 group-hover:text-[var(--color-accent-mint)] transition-colors duration-200">
+        <h3 className="font-heading text-xl font-bold text-[var(--color-fcb-blau)] mb-3 group-hover:text-[var(--color-fcb-grana)] transition-colors duration-200">
           {title}
         </h3>
 
@@ -132,7 +132,7 @@ export default function ProjectCard({ project, onOpenModal }) {
         {/* Tech stack */}
         <ul className="flex flex-wrap gap-3 font-mono text-xs text-[var(--color-text-muted)] mt-auto">
           {techStack.map((tech) => (
-            <li key={tech}>{tech}</li>
+            <li key={tech} className="px-2 py-1 bg-[var(--color-fcb-gold)]/20 text-[var(--color-fcb-blau)] font-bold rounded-md">{tech}</li>
           ))}
         </ul>
       </div>

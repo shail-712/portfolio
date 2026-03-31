@@ -46,8 +46,8 @@ function NotFound() {
       id="not-found-page"
       className="flex flex-col items-center justify-center min-h-[60vh] px-6 text-center"
     >
-      <p className="font-mono text-[var(--color-accent-mint)] text-sm mb-4">404</p>
-      <h1 className="font-heading text-5xl font-bold text-[var(--color-text-primary)] mb-4">
+      <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-4">404</p>
+      <h1 className="font-heading text-5xl font-bold text-[var(--color-fcb-blau)] mb-4">
         Page Not Found
       </h1>
       <p className="font-body text-[var(--color-text-muted)] mb-8">
@@ -55,7 +55,7 @@ function NotFound() {
       </p>
       <a
         href="/"
-        className="px-6 py-3 border border-[var(--color-accent-mint)] text-[var(--color-accent-mint)] font-mono text-sm rounded hover:bg-[var(--color-accent-mint)]/10 transition-colors duration-200"
+        className="px-6 py-3 bg-[var(--color-fcb-blau)] text-white font-mono text-sm rounded hover:bg-[var(--color-fcb-grana)] transition-colors duration-200 shadow-md"
       >
         Go Home
       </a>
@@ -71,7 +71,7 @@ export default function App() {
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route element={<Layout theme={theme} toggleTheme={toggleTheme} />}>
+          <Route path="/" element={<Layout theme={theme} toggleTheme={toggleTheme} />}>
             <Route index            element={<Home     onOpenModal={openModal} />} />
             <Route path="projects"  element={<Projects onOpenModal={openModal} />} />
             <Route path="about"     element={<About />} />

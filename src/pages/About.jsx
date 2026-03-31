@@ -27,8 +27,8 @@ export default function About() {
 
       {/* Bio section */}
       <SectionReveal className="mb-24">
-        <p className="font-mono text-[var(--color-accent-mint)] text-sm mb-2">Get to know me</p>
-        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-8">
+        <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">Get to know me</p>
+        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-fcb-blau)] mb-8">
           About Me
         </h1>
 
@@ -48,7 +48,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub profile"
-                className="px-5 py-2.5 border border-[var(--color-bg-surface)] text-[var(--color-text-muted)] hover:border-[var(--color-accent-mint)] hover:text-[var(--color-accent-mint)] font-mono text-sm rounded transition-colors duration-200"
+                className="px-5 py-2.5 border border-gray-200 shadow-sm text-[var(--color-text-muted)] hover:border-[var(--color-fcb-blau)] hover:text-[var(--color-fcb-blau)] font-mono text-sm rounded transition-colors duration-200"
               >
                 GitHub
               </a>
@@ -57,14 +57,14 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn profile"
-                className="px-5 py-2.5 border border-[var(--color-bg-surface)] text-[var(--color-text-muted)] hover:border-[var(--color-accent-mint)] hover:text-[var(--color-accent-mint)] font-mono text-sm rounded transition-colors duration-200"
+                className="px-5 py-2.5 border border-gray-200 shadow-sm text-[var(--color-text-muted)] hover:border-[var(--color-fcb-blau)] hover:text-[var(--color-fcb-blau)] font-mono text-sm rounded transition-colors duration-200"
               >
                 LinkedIn
               </a>
               <a
                 href={`mailto:${personal.email}`}
                 aria-label="Send email"
-                className="px-5 py-2.5 border border-[var(--color-bg-surface)] text-[var(--color-text-muted)] hover:border-[var(--color-accent-mint)] hover:text-[var(--color-accent-mint)] font-mono text-sm rounded transition-colors duration-200"
+                className="px-5 py-2.5 border border-gray-200 shadow-sm text-[var(--color-text-muted)] hover:border-[var(--color-fcb-blau)] hover:text-[var(--color-fcb-blau)] font-mono text-sm rounded transition-colors duration-200"
               >
                 Email
               </a>
@@ -77,7 +77,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="resume-download-btn"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent-maroon)] text-white font-mono text-sm rounded hover:brightness-110 transition-all duration-200 shadow-lg"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-fcb-blau)] text-white font-mono text-sm rounded hover:bg-[var(--color-fcb-grana)] transition-colors duration-200 shadow-lg"
               >
                 Download Resume
               </a>
@@ -90,7 +90,7 @@ export default function About() {
 
           {/* Right column — decorative role label */}
           <div className="hidden md:flex flex-col justify-center items-center bg-[var(--color-bg-surface)] rounded-xl p-10 border border-[var(--color-bg-primary)]">
-            <p className="font-heading text-5xl font-bold text-[var(--color-accent-mint)] mb-2">SS</p>
+            <p className="font-heading text-5xl font-bold text-[var(--color-fcb-blau)] mb-2">SS</p>
             <p className="font-mono text-sm text-[var(--color-text-muted)] text-center">{personal.role}</p>
           </div>
         </div>
@@ -98,8 +98,8 @@ export default function About() {
 
       {/* Skills section */}
       <SectionReveal id="skills-section">
-        <p className="font-mono text-[var(--color-accent-mint)] text-sm mb-2">What I work with</p>
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-12">
+        <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">What I work with</p>
+        <h2 className="font-heading text-3xl font-bold text-[var(--color-fcb-blau)] mb-12">
           Skills &amp; Technologies
         </h2>
 

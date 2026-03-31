@@ -15,8 +15,8 @@ export default function Contact() {
   return (
     <div id="contact-page" className="max-w-7xl mx-auto px-6 md:px-12 py-24">
       <SectionReveal>
-        <p className="font-mono text-[var(--color-accent-mint)] text-sm mb-2">Let's talk</p>
-        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4">
+        <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">Let's talk</p>
+        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-fcb-blau)] mb-4">
           Get in Touch
         </h1>
         <p className="font-body text-[var(--color-text-muted)] text-lg mb-16 max-w-xl">
@@ -35,7 +35,7 @@ export default function Contact() {
           Or reach me directly at{' '}
           <a
             href={`mailto:${personal.email}`}
-            className="text-[var(--color-accent-mint)] hover:underline"
+            className="text-[var(--color-fcb-blau)] font-bold hover:text-[var(--color-fcb-grana)] transition-colors"
           >
             {personal.email}
           </a>

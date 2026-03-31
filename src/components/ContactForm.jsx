@@ -47,12 +47,12 @@ export default function ContactForm() {
 
   // Helper: field border class based on validation state
   const fieldBorder = (name) => {
-    if (touched[name] && errors[name]) return 'border-[var(--color-accent-maroon)]';
-    return 'border-transparent focus:border-[var(--color-accent-mint)]';
+    if (touched[name] && errors[name]) return 'border-[var(--color-fcb-grana)] ring-1 ring-[var(--color-fcb-grana)]';
+    return 'border-gray-300 focus:border-[var(--color-fcb-blau)] focus:ring-1 focus:ring-[var(--color-fcb-blau)]';
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-8 bg-[var(--color-bg-surface)] rounded-xl shadow-lg border border-[var(--color-bg-primary)]">
+    <div className="max-w-2xl mx-auto p-8 bg-white rounded-xl shadow-lg border border-gray-200">
 
 
       {/* Status banners */}
@@ -60,7 +60,7 @@ export default function ContactForm() {
         <div
           id="form-success-banner"
           role="alert"
-          className="mb-6 p-4 rounded bg-[var(--color-accent-mint)]/10 border border-[var(--color-accent-mint)] text-[var(--color-accent-mint)] font-mono text-sm text-center"
+          className="mb-6 p-4 rounded bg-green-50 border border-green-500 text-green-700 font-mono text-sm text-center"
         >
           Message sent! I'll get back to you soon.
         </div>
@@ -69,7 +69,7 @@ export default function ContactForm() {
         <div
           id="form-error-banner"
           role="alert"
-          className="mb-6 p-4 rounded bg-[var(--color-accent-maroon)]/10 border border-[var(--color-accent-maroon)] text-[var(--color-accent-maroon)] font-mono text-sm text-center"
+          className="mb-6 p-4 rounded bg-red-50 border border-red-500 text-red-700 font-mono text-sm text-center"
         >
           {emailError || 'Something went wrong. Please try again.'}
         </div>
@@ -95,10 +95,10 @@ export default function ContactForm() {
             autoComplete="name"
             aria-invalid={touched.user_name && !!errors.user_name}
             aria-describedby={errors.user_name ? 'name-error' : undefined}
-            className={`w-full bg-[var(--color-bg-primary)] border ${fieldBorder('user_name')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
+            className={`w-full bg-[#F8F9FA] border ${fieldBorder('user_name')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
           />
           {touched.user_name && errors.user_name && (
-            <span id="name-error" role="alert" className="text-[var(--color-accent-maroon)] text-xs font-mono mt-1 block">
+            <span id="name-error" role="alert" className="text-[var(--color-fcb-grana)] text-xs font-mono mt-1 block">
               {errors.user_name}
             </span>
           )}
@@ -123,10 +123,10 @@ export default function ContactForm() {
             autoComplete="email"
             aria-invalid={touched.user_email && !!errors.user_email}
             aria-describedby={errors.user_email ? 'email-error' : undefined}
-            className={`w-full bg-[var(--color-bg-primary)] border ${fieldBorder('user_email')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
+            className={`w-full bg-[#F8F9FA] border ${fieldBorder('user_email')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body`}
           />
           {touched.user_email && errors.user_email && (
-            <span id="email-error" role="alert" className="text-[var(--color-accent-maroon)] text-xs font-mono mt-1 block">
+            <span id="email-error" role="alert" className="text-[var(--color-fcb-grana)] text-xs font-mono mt-1 block">
               {errors.user_email}
             </span>
           )}
@@ -150,10 +150,10 @@ export default function ContactForm() {
             rows={5}
             aria-invalid={touched.message && !!errors.message}
             aria-describedby={errors.message ? 'message-error' : undefined}
-            className={`w-full bg-[var(--color-bg-primary)] border ${fieldBorder('message')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body resize-y`}
+            className={`w-full bg-[#F8F9FA] border ${fieldBorder('message')} text-[var(--color-text-primary)] rounded px-4 py-3 outline-none transition-colors duration-200 font-body resize-y`}
           />
           {touched.message && errors.message && (
-            <span id="message-error" role="alert" className="text-[var(--color-accent-maroon)] text-xs font-mono mt-1 block">
+            <span id="message-error" role="alert" className="text-[var(--color-fcb-grana)] text-xs font-mono mt-1 block">
               {errors.message}
             </span>
           )}
@@ -164,7 +164,7 @@ export default function ContactForm() {
           type="submit"
           id="contact-submit-btn"
           disabled={isSending}
-          className="w-full py-4 bg-transparent border border-[var(--color-accent-mint)] text-[var(--color-accent-mint)] hover:bg-[var(--color-accent-mint)]/10 font-mono text-sm rounded transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-4 bg-[var(--color-fcb-blau)] border border-transparent text-white hover:bg-[var(--color-fcb-grana)] font-mono text-sm rounded transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
         >
           {isSending ? 'Sending…' : 'Send Message'}
         </button>

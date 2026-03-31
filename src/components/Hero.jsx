@@ -46,14 +46,14 @@ export default function Hero() {
       >
         <motion.p
           variants={itemVariants}
-          className="font-mono text-[var(--color-accent-mint)] mb-4 text-sm md:text-base"
+          className="font-mono text-[var(--color-fcb-grana)] mb-4 text-sm md:text-base"
         >
           Hi, my name is
         </motion.p>
 
         <motion.h1
           variants={itemVariants}
-          className="font-heading text-5xl md:text-7xl font-bold text-[var(--color-text-primary)] mb-4 tracking-tight"
+          className="font-heading text-5xl md:text-7xl font-bold text-[var(--color-fcb-blau)] mb-4 tracking-tight"
         >
           {personal.name}.
         </motion.h1>
@@ -76,7 +76,7 @@ export default function Hero() {
           <Link
             to="/projects"
             id="cta-view-projects"
-            className="px-6 py-3 border border-[var(--color-accent-mint)] text-[var(--color-accent-mint)] font-mono text-sm rounded hover:bg-[var(--color-accent-mint)]/10 transition-colors duration-200"
+            className="px-6 py-3 border border-[var(--color-fcb-blau)] text-[var(--color-fcb-blau)] font-mono text-sm rounded hover:bg-[var(--color-fcb-blau)]/10 transition-colors duration-200"
           >
             View Projects
           </Link>
@@ -86,7 +86,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               id="cta-download-resume"
-              className="px-6 py-3 bg-[var(--color-accent-maroon)] text-white font-mono text-sm rounded hover:brightness-110 transition-all duration-200 shadow-lg"
+              className="px-6 py-3 bg-[var(--color-fcb-blau)] text-white font-mono text-sm rounded hover:bg-[var(--color-fcb-grana)] transition-colors duration-200 shadow-lg"
             >
               Download Resume
             </a>

@@ -51,7 +51,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
         >
           <motion.div
             id="project-modal-content"
-            className="relative bg-[var(--color-bg-surface)] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[var(--color-bg-primary)]"
+            className="relative bg-[var(--color-bg-surface)] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -64,13 +64,13 @@ export default function ProjectModal({ project, isOpen, onClose }) {
               id="modal-close-btn"
               onClick={onClose}
               aria-label="Close project details"
-              className="absolute top-4 right-4 text-[var(--color-text-muted)] hover:text-[var(--color-text-primary)] transition-colors duration-200 text-xl leading-none p-1"
+              className="absolute top-4 right-4 text-[var(--color-text-muted)] hover:text-[var(--color-fcb-grana)] transition-colors duration-200 text-xl leading-none p-1"
             >
               ✕
             </button>
 
             {/* Image / Fallback */}
-            <div className="w-full h-52 bg-gradient-to-tr from-[var(--color-bg-primary)] to-[var(--color-bg-surface)] flex items-center justify-center rounded-t-xl overflow-hidden">
+            <div className="w-full h-52 bg-[#F8F9FA] border-b border-gray-200 flex items-center justify-center rounded-t-xl overflow-hidden">
               {project.image ? (
                 <img
                   src={project.image}
@@ -87,11 +87,11 @@ export default function ProjectModal({ project, isOpen, onClose }) {
 
             {/* Content */}
             <div className="p-8">
-              <span className="font-mono text-[var(--color-accent-gold)] text-xs mb-2 block">
+              <span className="font-mono text-[var(--color-fcb-grana)] font-bold text-xs uppercase tracking-wider mb-2 block">
                 {project.category}
               </span>
 
-              <h2 id="modal-title" className="font-heading text-2xl font-bold text-[var(--color-text-primary)] mb-4">
+              <h2 id="modal-title" className="font-heading text-2xl font-bold text-[var(--color-fcb-blau)] mb-4">
                 {project.title}
               </h2>
 
@@ -101,12 +101,12 @@ export default function ProjectModal({ project, isOpen, onClose }) {
 
               {/* Tech stack */}
               <div className="mb-6">
-                <h4 className="font-mono text-sm text-[var(--color-text-primary)] mb-3">Tech Stack</h4>
+                <h4 className="font-mono text-sm text-[var(--color-fcb-blau)] font-bold mb-3">Tech Stack</h4>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-[var(--color-bg-primary)] text-[var(--color-text-muted)] font-mono text-xs rounded-full"
+                      className="px-3 py-1 bg-[var(--color-fcb-gold)]/20 text-[var(--color-fcb-blau)] font-bold font-mono text-xs rounded-full"
                     >
                       {tech}
                     </span>
@@ -122,7 +122,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     id="modal-github-link"
-                    className="px-5 py-2.5 border border-[var(--color-accent-mint)] text-[var(--color-accent-mint)] font-mono text-sm rounded hover:bg-[var(--color-accent-mint)]/10 transition-colors duration-200"
+                    className="px-5 py-2.5 border border-[var(--color-fcb-blau)] text-[var(--color-fcb-blau)] font-mono text-sm rounded hover:bg-[var(--color-fcb-blau)]/10 transition-colors duration-200"
                   >
                     View on GitHub
                   </a>
@@ -133,7 +133,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     id="modal-live-link"
-                    className="px-5 py-2.5 bg-[var(--color-accent-maroon)] text-white font-mono text-sm rounded hover:brightness-110 transition-all duration-200"
+                    className="px-5 py-2.5 bg-[var(--color-fcb-blau)] text-white font-mono text-sm rounded hover:bg-[var(--color-fcb-grana)] transition-all duration-200"
                   >
                     Live Demo
                   </a>

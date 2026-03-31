@@ -12,7 +12,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './Navbar';
 
-export default function Layout({ theme, toggleTheme }) {
+export default function Layout() {
   const { pathname } = useLocation();
 
   // Scroll to top on route change
@@ -22,7 +22,7 @@ export default function Layout({ theme, toggleTheme }) {
 
   return (
     <div id="app-layout" className="min-h-screen flex flex-col">
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar />
 
       {/* pt-20 to clear the fixed navbar */}
       <main id="main-content" className="flex-1 pt-20">
@@ -35,7 +35,7 @@ export default function Layout({ theme, toggleTheme }) {
       >
         <p>
           Designed &amp; Built by{' '}
-          <span className="text-[var(--color-accent-mint)]">Shail Shaji</span>
+          <span className="text-[var(--color-fcb-gold)]">Shail Shaji</span>
           {' '}· {new Date().getFullYear()}
         </p>
       </footer>

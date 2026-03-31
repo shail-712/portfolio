@@ -4,35 +4,24 @@
 
 @layer base {
   :root {
-    /* Dark Navy (primary background) */
-    --color-bg-primary: #0A192F;
-    /* Slightly lighter navy (surface/cards) */
-    --color-bg-surface: #112240;
-    /* Maroon (accent, hover states) */
-    --color-accent-maroon: #8B0000;
-    /* Accent Gold (highlights, CTAs) */
-    --color-accent-gold: #FFD700;
-    /* Mint/Teal (optional highlight color) */
-    --color-accent-mint: #64FFDA;
-    /* Light blue-white (primary text) */
-    --color-text-primary: #CCD6F6;
-    /* Slate (muted text) */
-    --color-text-muted: #8892B0;
+    /* Base Backgrounds (Neutral) */
+    --color-bg-primary: #F8F9FA;
+    --color-bg-surface: #FFFFFF;
+    
+    /* FCB Primary Colors */
+    --color-fcb-blau: #004D98;
+    --color-fcb-grana: #A50044;
+    --color-fcb-gold: #EDBB00;
+    
+    /* Text Colors */
+    --color-text-primary: #1A1A1A;
+    --color-text-muted: #555555;
+    --color-text-inverse: #FFFFFF;
 
+    /* Typography */
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'DM Sans', sans-serif;
     --font-mono: 'DM Mono', monospace;
-  }
-
-  /* Light mode — triggered by .light-mode class on <html> */
-  html.light-mode {
-    --color-bg-primary: #F8FAFC;
-    --color-bg-surface: #FFFFFF;
-    --color-accent-maroon: #991B1B;
-    --color-accent-gold: #D97706;
-    --color-accent-mint: #0F766E;
-    --color-text-primary: #0F172A;
-    --color-text-muted: #475569;
   }
 
   *,
@@ -60,6 +49,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
+    color: var(--color-fcb-blau); /* Headings use Blau by default */
   }
 
   a {
