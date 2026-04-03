@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="hero-section"
-      className="relative min-h-[calc(100vh-5rem)] flex items-center px-6 md:px-12 max-w-7xl mx-auto overflow-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
     >
       {/* Fluid SVG Motion Paths (Tiki-Taka Background) */}
       <svg 
@@ -65,7 +65,7 @@ export default function Hero() {
         />
       </svg>
 
-      <div className="w-full py-20 lg:py-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="w-full px-6 md:px-12 max-w-7xl mx-auto py-24 lg:py-0 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center z-10 pt-28">
         {/* Left Column: Text Content */}
         <motion.div
           variants={containerVariants}

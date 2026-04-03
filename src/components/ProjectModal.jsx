@@ -51,7 +51,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
         >
           <motion.div
             id="project-modal-content"
-            className="relative bg-[var(--color-bg-surface)] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200"
+            className="relative bg-[var(--color-bg-surface)] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[var(--color-border-subtle)]"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -70,7 +70,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
             </button>
 
             {/* Image / Fallback */}
-            <div className="w-full h-52 bg-[#F8F9FA] border-b border-gray-200 flex items-center justify-center rounded-t-xl overflow-hidden">
+            <div className="w-full h-52 bg-[var(--color-bg-primary)] border-b border-[var(--color-border-subtle)] flex items-center justify-center rounded-t-xl overflow-hidden">
               {project.image ? (
                 <img
                   src={project.image}
@@ -106,7 +106,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-[var(--color-fcb-gold)]/20 text-[var(--color-fcb-blau)] font-bold font-mono text-xs rounded-full"
+                      className="px-3 py-1.5 bg-[var(--color-bg-primary)] text-[var(--color-text-muted)] border border-[var(--color-border-subtle)] font-medium font-mono text-xs rounded-md transition-colors duration-200 hover:border-[var(--color-fcb-gold)] hover:text-[var(--color-text-primary)] cursor-default"
                     >
                       {tech}
                     </span>

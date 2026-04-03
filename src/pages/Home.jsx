@@ -30,11 +30,11 @@ export default function Home({ onOpenModal }) {
           className="max-w-7xl mx-auto px-6 md:px-12 py-24"
         >
           <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">Selected work</p>
-          <h2 className="font-heading text-4xl font-bold text-[var(--color-fcb-blau)] mb-12">
+          <h2 className="font-heading text-4xl font-bold text-[var(--color-fcb-blau)] dark:text-white mb-12">
             Featured Projects
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 group-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {featuredProjects.map((project, index) => (
               <ProjectCard
                 key={project.id}
@@ -49,7 +49,7 @@ export default function Home({ onOpenModal }) {
             <Link
               to="/projects"
               id="view-all-projects-link"
-              className="font-mono text-sm text-[var(--color-fcb-blau)] font-bold hover:text-[var(--color-fcb-grana)] transition-colors inline-flex items-center gap-2 group"
+              className="font-mono text-sm text-[var(--color-fcb-blau)] dark:text-white font-bold hover:text-[var(--color-fcb-grana)] dark:hover:text-[var(--color-fcb-gold)] transition-colors inline-flex items-center gap-2 group"
             >
               View All Projects
               <span aria-hidden="true">→</span>

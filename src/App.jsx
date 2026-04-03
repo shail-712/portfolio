@@ -11,7 +11,7 @@
  *  - 404 catch-all route
  */
 
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useTheme, useProjectModal } from './hooks';
 import Layout from './components/Layout';
@@ -21,24 +21,11 @@ import ProjectModal from './components/ProjectModal';
 import Home from './pages/Home';
 
 // Lazy — code-split bundles
-const Projects = lazy(() => import('./pages/Projects'));
-const About    = lazy(() => import('./pages/About'));
+const Projects   = lazy(() => import('./pages/Projects'));
+const Experience = lazy(() => import('./pages/Experience'));
+const About      = lazy(() => import('./pages/About'));
 const Contact  = lazy(() => import('./pages/Contact'));
 
-function PageLoader() {
-  return (
-    <div
-      id="page-loader"
-      role="status"
-      aria-label="Loading page"
-      className="flex items-center justify-center min-h-[60vh]"
-    >
-      <span className="font-mono text-sm text-[var(--color-text-muted)] animate-pulse">
-        Loading…
-      </span>
-    </div>
-  );
-}
 
 function NotFound() {
   return (
@@ -69,17 +56,16 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Layout theme={theme} toggleTheme={toggleTheme} />}>
             <Route index            element={<Home     onOpenModal={openModal} />} />
-            <Route path="projects"  element={<Projects onOpenModal={openModal} />} />
-            <Route path="about"     element={<About />} />
+            <Route path="projects"   element={<Projects onOpenModal={openModal} />} />
+            <Route path="experience" element={<Experience />} />
+            <Route path="about"      element={<About />} />
             <Route path="contact"   element={<Contact />} />
             <Route path="*"         element={<NotFound />} />
           </Route>
         </Routes>
-      </Suspense>
 
       {/* Global modal — outside Routes so it renders above everything */}
       <ProjectModal project={selectedProject} isOpen={isOpen} onClose={closeModal} />

@@ -9,8 +9,23 @@
  */
 
 import { Outlet, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import Navbar from './Navbar';
+
+function PageLoader() {
+  return (
+    <div
+      id="page-loader"
+      role="status"
+      aria-label="Loading page"
+      className="flex items-center justify-center min-h-[60vh]"
+    >
+      <span className="font-mono text-sm text-[var(--color-text-muted)] animate-pulse">
+        Loading…
+      </span>
+    </div>
+  );
+}
 
 export default function Layout({ theme, toggleTheme }) {
   const { pathname } = useLocation();
@@ -25,8 +40,10 @@ export default function Layout({ theme, toggleTheme }) {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       {/* pt-20 to clear the fixed navbar */}
-      <main id="main-content" className="flex-1 pt-20">
-        <Outlet />
+      <main id="main-content" className="flex-1">
+        <Suspense fallback={<PageLoader />}>
+          <Outlet />
+        </Suspense>
       </main>
 
       <footer

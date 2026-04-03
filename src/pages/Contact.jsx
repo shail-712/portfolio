@@ -13,7 +13,7 @@ import personal from '../data/personal';
 
 export default function Contact() {
   return (
-    <div id="contact-page" className="max-w-7xl mx-auto px-6 md:px-12 py-24">
+    <div id="contact-page" className="max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24">
       <SectionReveal>
         <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">Let's talk</p>
         <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-fcb-blau)] mb-4">

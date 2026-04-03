@@ -109,11 +109,10 @@
 
   /* Grid Blur Trick Container */
   .group-grid > * {
-    transition: filter 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   }
   .group-grid:hover > *:not(:hover) {
-    filter: blur(6px);
-    opacity: 0.6;
+    opacity: 0.9;
     transform: scale(0.98);
   }
 

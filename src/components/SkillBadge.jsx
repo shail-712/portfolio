@@ -10,7 +10,7 @@ export default function SkillBadge({ name }) {
     <span
       role="listitem"
       aria-label={`Skill: ${name}`}
-      className="inline-flex items-center px-4 py-2 bg-[#F8F9FA] text-[var(--color-text-primary)] font-mono text-xs font-bold rounded-full border border-[var(--color-fcb-gold)] hover:border-[var(--color-fcb-grana)] hover:bg-[var(--color-fcb-grana)] hover:text-[var(--color-text-inverse)] transition-all duration-150 ease-out cursor-default shadow-sm hover:shadow-md"
+      className="inline-flex items-center px-4 py-2 bg-[var(--color-bg-primary)] text-[var(--color-text-muted)] font-mono text-xs font-bold rounded-full border border-[var(--color-border-subtle)] hover:border-[var(--color-fcb-gold)] hover:text-[var(--color-text-primary)] transition-all duration-150 ease-out cursor-default shadow-sm hover:shadow-md"
     >
       {name}
     </span>
