@@ -112,7 +112,7 @@ export default function Hero() {
             <Link
               to="/projects"
               id="cta-view-projects"
-              className="group flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-fcb-blau)] text-white font-mono text-sm font-bold rounded hover:bg-[var(--color-fcb-grana)] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,77,152,0.39)] hover:shadow-[0_6px_20px_rgba(165,0,68,0.23)] hover:-translate-y-1"
+              className="group flex items-center justify-center gap-2 px-8 py-4 bg-[var(--color-fcb-blau)] text-[var(--color-text-on-brand)] font-mono text-sm font-bold rounded hover:bg-[var(--color-fcb-grana)] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,77,152,0.39)] hover:shadow-[0_6px_20px_rgba(165,0,68,0.23)] hover:-translate-y-1"
             >
               <span>View Projects</span>
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -125,7 +125,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="cta-download-resume"
-                className="group flex items-center justify-center gap-2 px-8 py-4 border-[2px] border-[var(--color-fcb-blau)] text-[var(--color-fcb-blau)] dark:text-white dark:border-[var(--color-border-subtle)] font-mono text-sm font-bold rounded hover:bg-[var(--color-bg-surface)] hover:text-[var(--color-fcb-grana)] dark:hover:border-[var(--color-fcb-grana)] transition-all duration-300 hover:-translate-y-1 dark:hover:shadow-[0_4px_14px_rgba(255,255,255,0.05)]"
+                className="group flex items-center justify-center gap-2 px-8 py-4 border-[2px] border-[var(--color-fcb-blau)] text-[var(--color-fcb-blau)] dark:text-[var(--color-text-primary)] dark:border-[var(--color-border-subtle)] font-mono text-sm font-bold rounded hover:bg-[var(--color-bg-surface)] hover:text-[var(--color-fcb-grana)] dark:hover:border-[var(--color-fcb-grana)] transition-all duration-300 hover:-translate-y-1 dark:hover:shadow-[0_4px_14px_rgba(255,255,255,0.05)]"
               >
                 <span>Download Resume</span>
                 <svg className="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,7 +135,7 @@ export default function Hero() {
             ) : (
               <Link
                 to="/contact"
-                className="group flex items-center justify-center gap-2 px-8 py-4 border-[2px] border-[var(--color-fcb-blau)] text-[var(--color-fcb-blau)] dark:text-white dark:border-[var(--color-border-subtle)] font-mono text-sm font-bold rounded hover:bg-[var(--color-bg-surface)] hover:text-[var(--color-fcb-grana)] dark:hover:border-[var(--color-fcb-grana)] transition-all duration-300 hover:-translate-y-1 dark:hover:shadow-[0_4px_14px_rgba(255,255,255,0.05)]"
+                className="group flex items-center justify-center gap-2 px-8 py-4 border-[2px] border-[var(--color-fcb-blau)] text-[var(--color-fcb-blau)] dark:text-[var(--color-text-primary)] dark:border-[var(--color-border-subtle)] font-mono text-sm font-bold rounded hover:bg-[var(--color-bg-surface)] hover:text-[var(--color-fcb-grana)] dark:hover:border-[var(--color-fcb-grana)] transition-all duration-300 hover:-translate-y-1 dark:hover:shadow-[0_4px_14px_rgba(255,255,255,0.05)]"
               >
                 <span>Let's Talk</span>
                 <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +153,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           className="flex justify-center items-center lg:justify-end z-10"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden border-[3px] border-[var(--color-fcb-blau)] dark:border-[var(--color-fcb-grana)] bg-slate-800 animate-aura flex items-center justify-center shadow-2xl">
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden border-[3px] border-[var(--color-fcb-blau)] dark:border-[var(--color-fcb-grana)] bg-[var(--color-bg-primary)] animate-aura flex items-center justify-center shadow-2xl">
             {/* If you have a real image, swap out this placeholder text for an <img /> */}
             <span className="font-heading text-7xl font-bold text-[var(--color-fcb-gold)]">
               {personal.name.split(' ').map(n => n[0]).join('')}

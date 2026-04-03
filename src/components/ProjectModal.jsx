@@ -133,7 +133,7 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     id="modal-live-link"
-                    className="px-5 py-2.5 bg-[var(--color-fcb-blau)] text-white font-mono text-sm rounded hover:bg-[var(--color-fcb-grana)] transition-all duration-200"
+                    className="px-6 py-3 bg-[var(--color-fcb-blau)] text-[var(--color-text-on-brand)] font-bold font-mono text-sm rounded hover:bg-[var(--color-fcb-grana)] transition-all duration-200"
                   >
                     Live Demo
                   </a>

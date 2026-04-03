@@ -63,7 +63,7 @@ export default function ProjectCard({ project, index = 0, onOpenModal }) {
       transition={{ duration: 0.2, ease: 'easeOut' }}
     >
       {/* Image / Fallback gradient */}
-      <div className="w-full h-48 bg-[#F8F9FA] dark:bg-[var(--color-bg-primary)] flex items-center justify-center border-b border-gray-200 dark:border-[var(--color-border-subtle)] overflow-hidden">
+      <div className="w-full h-48 bg-[var(--color-bg-primary)] flex items-center justify-center border-b border-[var(--color-border-subtle)] overflow-hidden">
         {image ? (
           <img
             src={image}

@@ -17,7 +17,7 @@ export default function Experience() {
     <div id="experience-page">
       <SectionReveal className="max-w-4xl mx-auto px-6 md:px-12 pt-32 pb-24">
         <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">My Journey</p>
-        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-fcb-blau)] dark:text-white mb-16">
+        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-fcb-blau)] dark:text-[var(--color-text-primary)] mb-12">
           Experience
         </h1>
 
@@ -31,7 +31,7 @@ export default function Experience() {
               {/* Timeline dot */}
               <div className="absolute w-5 h-5 bg-[var(--color-fcb-blau)] dark:bg-[var(--color-fcb-gold)] rounded-full -left-[11px] top-1 shadow-md"></div>
               
-              <h3 className="font-heading text-2xl font-bold text-[var(--color-fcb-blau)] dark:text-white mb-1">
+              <h3 className="font-heading text-2xl font-bold text-[var(--color-fcb-blau)] dark:text-[var(--color-text-primary)] mb-1">
                 {exp.role}
               </h3>
               <p className="font-mono text-sm text-[var(--color-fcb-grana)] dark:text-[var(--color-text-muted)] font-bold mb-4">
@@ -51,7 +51,7 @@ export default function Experience() {
               href={personal.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-fcb-blau)] text-white font-mono text-sm font-bold rounded hover:bg-[var(--color-fcb-grana)] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,77,152,0.39)] hover:shadow-[0_6px_20px_rgba(165,0,68,0.23)] hover:-translate-y-1"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-fcb-blau)] text-[var(--color-text-on-brand)] font-mono text-sm font-bold rounded hover:bg-[var(--color-fcb-grana)] transition-all duration-300 shadow-[0_4px_14px_0_rgba(0,77,152,0.39)] hover:shadow-[0_6px_20px_rgba(165,0,68,0.23)] hover:-translate-y-1"
             >
               Download Resume
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

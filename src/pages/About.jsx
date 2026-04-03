@@ -28,7 +28,7 @@ export default function About() {
       {/* Bio section */}
       <SectionReveal className="mb-24">
         <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">Get to know me</p>
-        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-fcb-blau)] dark:text-white mb-8">
+        <h1 className="font-heading text-4xl md:text-5xl font-bold text-[var(--color-fcb-blau)] dark:text-[var(--color-text-primary)] mb-12">
           About Me
         </h1>
 
@@ -77,7 +77,7 @@ export default function About() {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="resume-download-btn"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-fcb-blau)] text-white font-mono text-sm rounded hover:bg-[var(--color-fcb-grana)] transition-colors duration-200 shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[var(--color-fcb-blau)] text-[var(--color-text-on-brand)] font-mono text-sm font-bold rounded hover:bg-[var(--color-fcb-grana)] transition-colors duration-200 shadow-[0_4px_14px_0_rgba(0,77,152,0.39)] hover:shadow-[0_6px_20px_rgba(165,0,68,0.23)] hover:-translate-y-1"
               >
                 Download Resume
               </a>
@@ -99,7 +99,7 @@ export default function About() {
       {/* Skills section */}
       <SectionReveal id="skills-section">
         <p className="font-mono text-[var(--color-fcb-grana)] font-bold text-sm mb-2 uppercase tracking-wide">What I work with</p>
-        <h2 className="font-heading text-3xl font-bold text-[var(--color-fcb-blau)] dark:text-white mb-12">
+        <h2 className="font-heading text-3xl font-bold text-[var(--color-fcb-blau)] dark:text-[var(--color-text-primary)] mb-12">
           Skills &amp; Technologies
         </h2>
 

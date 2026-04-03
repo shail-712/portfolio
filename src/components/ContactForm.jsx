@@ -164,7 +164,7 @@ export default function ContactForm() {
           type="submit"
           id="contact-submit-btn"
           disabled={isSending}
-          className="w-full py-4 bg-[var(--color-fcb-blau)] border border-transparent text-white hover:bg-[var(--color-fcb-grana)] font-mono text-sm rounded transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
+          className="w-full py-4 bg-[var(--color-fcb-blau)] border border-transparent text-[var(--color-text-on-brand)] hover:bg-[var(--color-fcb-grana)] font-mono text-sm font-bold rounded transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
         >
           {isSending ? 'Sending…' : 'Send Message'}
         </button>
