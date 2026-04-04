@@ -69,9 +69,16 @@ export default function ContactForm() {
         <div
           id="form-error-banner"
           role="alert"
-          className="mb-6 p-4 rounded bg-red-50 border border-red-500 text-red-700 font-mono text-sm text-center"
+          aria-live="polite"
+          className="mb-6 p-4 rounded bg-red-50 border border-red-500 text-red-700 font-mono text-sm text-center flex flex-col items-center gap-3"
         >
-          {emailError || 'Something went wrong. Please try again.'}
+          <p>{emailError || 'Failed to send message via EmailJS.'}</p>
+          <a
+            href={`mailto:shailshaji@example.com?subject=Contact%20Form%20Fallback&body=${encodeURIComponent(values.message || '')}`}
+            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+          >
+            Email directly instead
+          </a>
         </div>
       )}
 

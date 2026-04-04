@@ -1,57 +1,48 @@
-# Shail Portfolio — Development Update Report
-**Date:** March 31, 2026
+# Final System Testing Report
 
-This report provides an updated status on the Shail Portfolio project, specifically breaking down **what is newly added** (in the most recent development session) versus **what is structurally implemented** overall.
+## Overall Readiness Score: 9 / 10
+**Status**: Extremely close to production-ready. The application architecture is robust, utilizing React lazy loading properly, clean hook separation, and beautiful CSS scaling. However, a few accessibility and performance edge-cases hold it back from a perfect score.
 
----
-
-## ⭐️ What's New? (Recently Added Features & Re-designs)
-The application has undergone a significant UI/UX polish phase, introducing an **FC Barcelona (FCB) inspired theme** alongside advanced interactive animations.
-
-### 1. New FCB Color Tokens & Dark Mode Refactor
-The stylesheet (`tokens.css`) has been extensively rewritten:
-- Added explicit FCB thematic variables: 
-  - `--color-fcb-blau` (#004D98) 
-  - `--color-fcb-grana` (#A50044) 
-  - `--color-fcb-gold` (#EDBB00)
-- **Dark Mode Re-architecture**: Shifted from an `html.light-mode` structure to a standard `html.dark` pseudo-selector, introducing a new "Away Kit" (Midnight/Slate) color palette for background surfaces and subtle borders. 
-
-### 2. New CSS Animations & Utilities
-Several highly dynamic Framer Motion and custom CSS animations were added:
-- **`tiki-taka-text`**: A custom endless linear-gradient animation flowing across text layers (Blau → Grana → Gold), clipping perfectly to font edges.
-- **`tiki-taka-path` & `.animate-aura`**: A glowing pulsating drop-shadow effect (`aura-glow`) shifting between Blau and Grana opacities over a 3-second infinite loop.
-- **The Blur Grid Trick (`.group-grid`)**: A CSS trick wherein hovering over one `ProjectCard` in a CSS Grid blurs and scales down the inactive siblings, aggressively drawing focus to the exact card the user is reading.
-
-### 3. Component Updates
-- **`Hero.jsx`**: Transformed to use the flowing `tiki-taka-text` gradient for headlines and integrated an overlapping `aura` SVG background rendering.
-- **`Navbar.jsx` & `Layout.jsx`**: Converted to consume the revised theme context logic (checking for `dark` vs `light`).
-- **`Projects.jsx` & `Home.jsx`**: Grid containers converted to use the `.group-grid` utility.
-- **`ProjectCard.jsx`**: Re-styled to incorporate thicker borders that glow with `--color-fcb-grana` on hover. Accommodates the peer-blur logic.
+Below is the strict critical review across all requested testing categories:
 
 ---
 
-## 🏗 What Is Implemented? (Core Foundation)
-Everything outlined in the foundational PRD has been structurally finalized.
+## 1. Functional Testing: PASS
+- **Routing**: `react-router-dom` handles all routes cleanly. `Layout.jsx` catches route changes to scroll to the top automatically. *(Pass)*
+- **Navigation**: `NavLink` properly highlights active tabs. *(Pass)*
+- **Theme**: `useTheme` works flawlessly, toggling variables via the `.dark` class on the HTML root. *(Pass)*
+- **Filtering**: Project filtering in `Projects.jsx` filters state correctly and provides an empty-state message if empty. *(Pass)*
+- **Contact Form**: `useEmailJS` correctly simulates state machinery (Idle -> Sending -> Success/Error) and `useFormValidation` accurately blocks submissions until Regex/Length requirements are met. *(Pass)*
 
-### 1. File & Component Architecture
-- **Routing**: `react-router-dom` successfully lazy-loads `About`, `Projects`, and `Contact` routes, keeping the `Home` path eager for Lighthouse performance metrics.
-- **Component Isolation**: Fully reusable UI components (`Layout`, `Navbar`, `ProjectCard`, `SkillBadge`, `ContactForm`).
+## 2. UI/UX Testing: PASS (with minor note)
+- **Layout**: Clear structural grids, max-widths, and padding. Responsive classes (`md:`, `lg:`) are utilized intelligently. *(Pass)*
+- **Consistency**: High. The use of `--color-fcb-*` token variables guarantees absolute parity between pages. *(Pass)*
+- **Hover/Interactions**: Framer Motion implements satisfying micro-animations on cards (`scale: 1.02, y: -5`). *(Pass)*
 
-### 2. Data & State Logic
-- **Component Data Mocking**: `projects.js` and `skills.js` cleanly export all metadata, bypassing hardcoded UI files.
-- **Centralized State**: Custom hooks (`useTheme.js`, `useEmailJS.js`, `useProjectModal.js`) handle complex API boundaries and LocalStorage access. The global `ProjectModal` reliably triggers from any route without Z-index breakdown.
+## 3. Performance Testing: PASS (with warnings)
+- **Lazy Loading**: `<Suspense>` is correctly wrapping the `<Outlet />` allowing page chunks to load on demand. *(Pass)*
+- **Warnings**: The continuous SVG `stroke-dashoffset` animations running in `Hero.jsx` might trigger slight battery/CPU drain on low-end mobile devices. Additionally, there is no localized image compression pipeline setup.
 
-### 3. Functional Requirements
-- **Contact Handling**: Integrated `@emailjs/browser` with active validation via `useFormValidation.js` (validates emails, disables submit prior to completion).
-- **Responsive Navigation**: Mobile hamburger menu collapses fluidly.
-- **Project Filtering**: Functional multi-tag filtering inside the `Projects.jsx` page ("Web", "ML", "Other") reflecting accurate categorized arrays.
+## 4. Accessibility Testing: FAIL (Focus Trap Missing)
+- **Aria Labels**: Implemented widely on interactive elements. *(Pass)*
+- **Global Focus**: Visible keyboard outlines are present via `:focus-visible` global rules. *(Pass)*
+- **Warning**: Inside `ProjectModal.jsx`, while the first element auto-focuses, there is **no Focus Trap**. Hitting `Tab` multiple times will allow your keyboard focus to leave the active modal and wander invisibly through the background content. 
 
-### 4. Accessibility & Performance
-- Intersection Observers (`SectionReveal.jsx`) only trigger Framer Motion blocks once per viewport intercept to save RAM overhead.
-- ARIA standards are fully drafted across interactive button bounds.
+## 5. Edge Case Testing: PASS
+- **Invalid Input**: Form blocks submissions beautifully with inline error messages and `aria-describedby` hooks. *(Pass)*
+- **Broken Images**: Both `ProjectCard.jsx` and `ProjectModal.jsx` utilize an `onError` synthetic event that immediately hides the broken `<img>` and reveals a heavily-styled fallback gradient block using the project's initials. Fantastic UX decision. *(Pass)*
+
+## 6. Code Quality: PASS
+- **Review**: Exceptional. UI components strictly receive props. Complex logic is successfully abstracted to the `src/hooks/` directory.
 
 ---
 
-## 📌 Summary
-The core orchestrator logic is **100% implemented**. 
-The UI layer is currently experiencing its **Polish Phase**, transitioning from standard "Navy/Slate" aesthetic placeholders into an aggressive, dynamic **FCB-themed interactive experience**. The newest additions successfully merge complex CSS animation loops (Aura glows, gradient clipping) with React state management.
+# Identified Issues & Suggested Fixes
+
+| ID | Category | Issue | Severity | Suggested Fix |
+|----|----------|-------|----------|---------------|
+| 1 | **Accessibility** | **No Focus Trap in Modal:** Keyboard focus leaves the modal and wanders to the background. | **HIGH** | Use a library like `focus-trap-react` to wrap the `project-modal-content` or manually capture the TAB key event to lock traversal inside the modal. |
+| 2 | **Security / UX** | **EmailJS Spam:** The contact form currently lacks rate-limiting or anti-bot measures, risking EmailJS quota exhaustion. | **MEDIUM** | Implement Google reCAPTCHA v3 invisibly, or add a hidden "honeypot" field that silently rejects the submission if filled by bots. |
+| 3 | **Performance** | **Image Pipeline Optimization:** Raw image URLs without explicit build-time compression might bloat load times > 2.5s over slow 3G. | **MEDIUM** | Convert static assets to `.webp` or `.avif`, or use `vite-plugin-image-optimizer`. |
+| 4 | **Performance** | **Missing Lazy Attribute in Modal:** `ProjectCard.jsx` uses `loading="lazy"`, but `ProjectModal.jsx` omits it. | **LOW** | Add `loading="lazy"` to the `<img>` tag on line 76 in `ProjectModal.jsx`. |
+| 5 | **Accessibility** | **Infinite SVG Animations:** `Hero.jsx` utilizes continuously looping animations without checking system preferences. | **LOW** | Add an `@media (prefers-reduced-motion: reduce)` block in `tokens.css` to disable infinite `flow-background` keyframes. |

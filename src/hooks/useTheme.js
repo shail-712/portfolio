@@ -35,11 +35,14 @@ export function useTheme() {
     } else {
       document.documentElement.classList.remove('dark');
     }
-    try {
-      localStorage.setItem(STORAGE_KEY, theme);
-    } catch {
-      console.warn('Failed to persist theme preference.');
-    }
+    const timeoutId = setTimeout(() => {
+      try {
+        localStorage.setItem(STORAGE_KEY, theme);
+      } catch {
+        console.warn('Failed to persist theme preference.');
+      }
+    }, 300);
+    return () => clearTimeout(timeoutId);
   }, [theme]);
 
   const toggleTheme = useCallback(() => {
