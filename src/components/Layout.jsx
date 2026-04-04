@@ -36,7 +36,7 @@ export default function Layout({ theme, toggleTheme }) {
   }, [pathname]);
 
   return (
-    <div id="app-layout" className="min-h-screen flex flex-col">
+    <div id="app-layout" className="min-h-screen flex flex-col bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] transition-colors duration-300" style={{ backgroundImage: 'var(--bg-gradient)' }}>
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       {/* pt-20 to clear the fixed navbar */}

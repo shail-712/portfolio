@@ -5,8 +5,10 @@
 @layer base {
   :root {
     /* Base Backgrounds (Light Kit) */
-    --color-bg-primary: #F8F9FA;
+    --color-bg-primary: #f4f6fb;
     --color-bg-surface: #FFFFFF;
+    --bg-gradient: radial-gradient(circle at top right, rgba(0, 77, 152, 0.15) 0%, rgba(244, 246, 251, 0) 60%),
+                   radial-gradient(circle at bottom left, rgba(165, 0, 68, 0.08) 0%, rgba(244, 246, 251, 0) 60%);
     --color-border-subtle: #E5E7EB;
     
     /* FCB Primary Colors */
@@ -30,6 +32,7 @@
     /* Away Kit (Midnight / Slate Dark Mode) */
     --color-bg-primary: #0A1128;
     --color-bg-surface: #162032;
+    --bg-gradient: none;
     --color-border-subtle: #1E293B;
 
     --color-text-primary: #F8F9FA;
@@ -50,6 +53,8 @@
 
   body {
     background-color: var(--color-bg-primary);
+    background-image: var(--bg-gradient);
+    background-attachment: fixed;
     color: var(--color-text-primary);
     font-family: var(--font-body);
     font-size: 16px;
